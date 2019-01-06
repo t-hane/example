@@ -1,0 +1,10 @@
+<dl>
+<dt>名前</dt>
+<dd><%= @member.name %></dd>
+<dt>メールアドレス</dt>
+<dd><%= @member.email %></dd>
+<dt>年齢</dt>
+<dd><%= @member.age %></dd>
+</dl>
+<%= link_to '編集', edit_member_path(@member) %>
+

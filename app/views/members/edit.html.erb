@@ -1,0 +1,11 @@
+<%= form_for @member do |f| %>
+<dl>
+<dt>名前</dt>
+<dd><%= f.text_field :name %></dd>
+<dt>メールアドレス</dt>
+<dd><%= f.email_field :email %></dd>
+<dt>年齢</dt>
+<dd><%= f.number_field :age %></dd>
+</dl>
+<%= f.submit '更新' %>
+<% end %>
