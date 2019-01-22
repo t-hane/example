@@ -8,3 +8,17 @@
 </dl>
 <%= link_to '編集', edit_member_path(@member) %>
 
+<h2>タスクリスト</h2>
+<table>
+<thead>
+<tr><th>タイトル</th><th>詳細<th><th>
+</thead>
+<tbody>
+<% @member.tasks.each do |task| %>
+    <tr>
+        <td><%= task.title %></td>
+        <td><%= link_to '詳細', task_path(task) %></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
