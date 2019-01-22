@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to 'メンバー', members_path %>
+      <%= link_to 'タスク', tasks_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>

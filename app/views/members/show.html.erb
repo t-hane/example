@@ -1,24 +1,35 @@
+<h1>メンバー「<%= @member.name %>」の詳細</h1>
+
 <dl>
-<dt>名前</dt>
-<dd><%= @member.name %></dd>
-<dt>メールアドレス</dt>
-<dd><%= @member.email %></dd>
-<dt>年齢</dt>
-<dd><%= @member.age %></dd>
+    <dt>名前</dt>
+    <dd><%= @member.name %></dd>
+    <dt>メールアドレス</dt>
+    <dd><%= @member.email %></dd>
+    <dt>年齢</dt>
+    <dd><%= @member.age %></dd>
 </dl>
+
+<%= link_to 'メンバー一覧', members_path %>
 <%= link_to '編集', edit_member_path(@member) %>
 
 <h2>タスクリスト</h2>
+<% if @member.tasks.present? %>
 <table>
-<thead>
-<tr><th>タイトル</th><th>詳細<th><th>
-</thead>
-<tbody>
-<% @member.tasks.each do |task| %>
-    <tr>
-        <td><%= task.title %></td>
-        <td><%= link_to '詳細', task_path(task) %></td>
-    </tr>
-<% end %>
-</tbody>
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>詳細<th>
+        <th>
+    </thead>
+    <tbody>
+    <% @member.tasks.each do |task| %>
+        <tr>
+            <td><%= task.title %></td>
+            <td><%= link_to '詳細', task_path(task) %></td>
+        </tr>
+    <% end %>
+    </tbody>
 </table>
+<% else %>
+    <p>タスクはありません</p>
+<% end %>

@@ -1,10 +1,26 @@
+<h1>タスク「<%= @task.title %>」の詳細</h1>
+
 <dl>
-<dt>タイトル</dt>
-<dd><%= @task.title %></dd>
-<dt>メンバー</dt>
-<dd><%= @task.member.name %></dd>
-<dt>内容</dt>
-<dd><%= simple_format @task.content %></dd>
+    <dt>タイトル</dt>
+    <dd><%= @task.title %></dd>
+    <dt>メンバー</dt>
+    <dd><%= @task.member.name %></dd>
+    <dt>内容</dt>
+    <dd><%= simple_format @task.content %></dd>
 </dl>
+
+<%= link_to 'タスク一覧', tasks_path %>
 <%= link_to '編集', edit_task_path(@task) %>
 
+<h2>メンバーの詳細</h2>
+
+<dl>
+    <dt>名前</dt>
+    <dd><%= @task.member.name %></dd>
+    <dt>メールアドレス</dt>
+    <dd><%= @task.member.email %></dd>
+    <dt>年齢</dt>
+    <dd><%= @task.member.age %></dd>
+</dl>
+
+<%= link_to 'メンバー', member_path(@task.member) %>

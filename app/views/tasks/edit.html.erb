@@ -1,12 +1,16 @@
+<h1>タスク「<%= @task.title %>」の編集</h1>
+
 <%= form_for @task do |f| %>
-<dl>
-<dt>メンバー</dt>
-<dd><%= f.collection_select :member_id,
-                        Member.all, :id, :name %></dd>
-<dt>タイトル</dt>
-<dd><%= f.text_field :title %></dd>
-<dt>中身</dt>
-<dd><%= f.text_area :content %></dd>
-</dl>
-<%= f.submit '更新' %>
+    <dl>
+        <dt>メンバー</dt>
+        <dd><%= f.collection_select :member_id,
+                                Member.all, :id, :name %></dd>
+        <dt>タイトル</dt>
+        <dd><%= f.text_field :title %></dd>
+        <dt>中身</dt>
+        <dd><%= f.text_area :content %></dd>
+    </dl>
+
+    <%= link_to 'キャンセル', task_path(@task) %>
+    <%= f.submit '更新' %>
 <% end %>

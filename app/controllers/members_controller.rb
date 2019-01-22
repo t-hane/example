@@ -35,8 +35,7 @@ class MembersController < ApplicationController
                 .permit(:name, :age, :email)
 
             @member = Member.find params[:id]
-            @member.attributes = member_params
-            @member.save!
+            @member.update_attributes! member_params
         end
 
     rescue ActiveRecord::RecordInvalid 

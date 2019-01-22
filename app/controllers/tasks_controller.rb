@@ -13,12 +13,10 @@ class TasksController < ApplicationController
 
     def create
         Task.transaction do
-            @task = Task.new params.require(:task)
-                            .permit(
-                                :title,
-                                 :member_id, :content)
+            task_params = params.require(:task)
+                                .permit(:title, :member_id, :content)
+            @task = Task.new task_params
             @task.save!
-            redirect_to task_path(@task)
         end
     rescue ActiveRecord::RecordInvalid
         render action: :new
@@ -29,9 +27,13 @@ class TasksController < ApplicationController
     end
 
     def update
-        @task = Task.find(params[:id])
-        @task.update_attributes! params.require(:task)
-                        .permit(:title, :member_id, :content)
-        redirect_to task_path(@task)
+        Task.transaction do
+            @task = Task.find(params[:id])
+            task_params = params.require(:task)
+                                .permit(:title, :member_id, :content)
+            @task.update_attributes! task_params
+        end
+    rescue ActiveRecord::RecordInvalid
+        render action: :edit
     end
 end

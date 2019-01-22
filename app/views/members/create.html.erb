@@ -1,2 +1,2 @@
-<p>メンバーを作成しました。</p>
-<%= link_to '戻る', members_path %>
+<h1>メンバー「<%= @member.name %>」を作成しました</h1>
+<%= link_to 'メンバーを表示', member_path(@member) %>

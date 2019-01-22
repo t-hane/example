@@ -1,3 +1,4 @@
+<h1>メンバーの作成</h1>
 <%= form_for @member do |f| %>
 <dl>
 <dt>名前</dt>
@@ -7,5 +8,6 @@
 <dt>年齢</dt>
 <dd><%= f.number_field :age %></dd>
 </dl>
+<%= link_to 'キャンセル', members_path %>
 <%= f.submit '登録' %>
 <% end %>

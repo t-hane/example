@@ -1,3 +1,4 @@
+<h1>タスクの作成</h1>
 <%= form_for @task do |f| %>
 <dl>
 <dt>メンバー</dt>
@@ -8,5 +9,6 @@
 <dt>中身</dt>
 <dd><%= f.text_area :content %></dd>
 </dl>
+<%= link_to 'キャンセル', tasks_path %>
 <%= f.submit '登録' %>
 <% end %>
